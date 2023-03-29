@@ -5,7 +5,7 @@ How to run this code
 export OPENAI_API_KEY=“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”
 ```
 
-2. install the packages required: whisper, openai, loguru, pytube, pubchempy in your local python environment
+2. install the packages required: whisper, openai, loguru, pytube, pubchempy, pandas in your local python environment
 
 3. run the notebook video_to_questions.ipynb 
 
