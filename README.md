@@ -10,4 +10,6 @@ export OPENAI_API_KEY=“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”
 3. run the code:
 ```
 python src/audio2text.py
+
+4. Run the notebook video_to_questions.ipynb 
 ```
