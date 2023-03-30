@@ -11,7 +11,7 @@ def chem(text):
         Output: DataFrame with PubChem data (label, link, SMILES)
     """
     doc = Document(text)
-    chem_names = [cem.text for cem in doc.cems]
+    chem_names = list(set([cem.text for cem in doc.cems]))
     logger.debug(f"The chemical compounds found: {chem_names}")
 
     cids_list = []
@@ -21,16 +21,15 @@ def chem(text):
             pcp_compounds = get_compounds(name, 'name')
             for compound in pcp_compounds:
                 cid = compound.cid
-                if cid not in cids_list: # avoid duplicates
-                    cids_list.append(cid)
-                    c = pcp.Compound.from_cid(cid)
-                    iupac = c.iupac_name
-                    link = f'https://pubchem.ncbi.nlm.nih.gov/compound/{c.cid}'
-                    SMILES = c.isomeric_smiles
-                    pubchem_data["label"].append(name)
-                    pubchem_data["iupac"].append(iupac)
-                    pubchem_data["link"].append(link)
-                    pubchem_data["SMILES"].append(SMILES)
+                c = pcp.Compound.from_cid(cid)
+                iupac = c.iupac_name
+                link = f'https://pubchem.ncbi.nlm.nih.gov/compound/{c.cid}'
+                SMILES = c.isomeric_smiles
+                pubchem_data["label"].append(name)
+                pubchem_data["iupac"].append(iupac)
+                pubchem_data["link"].append(link)
+                pubchem_data["SMILES"].append(SMILES)
         except:
-            pass
+            continue
+        
     return pd.DataFrame(pubchem_data)
