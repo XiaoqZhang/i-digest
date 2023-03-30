@@ -31,7 +31,7 @@ def main():
         df = chem(video_text)
         for i in df['label']:
             url = df.loc[df['label'] == i]['link'].values[0]
-            st.write("[i](url)")
+            st.markdown("[i](url)",unsafe_allow_html=True)
             st.text(df.loc[df['label'] == i]['iupac'].values[0])
             st.text(df.loc[df['label'] == i]['SMILES'].values[0])
 
