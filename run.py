@@ -28,7 +28,12 @@ def main():
         video_text, summary, question = a2t(audio_path)
         st.text(f"Summary: \n {summary}")
         st.text(f"Questions: \n {question}")
-        chem(video_text)
+        df = chem(video_text)
+        for i in df['label']:
+            url = df.loc[df['label'] == i]['link'].values[0]
+            st.write([i](url))
+            st.text(df.loc[df['label'] == i]['iupac'].values[0])
+            st.text(df.loc[df['label'] == i]['SMILES'].values[0])
 
 
 # Run the main function
