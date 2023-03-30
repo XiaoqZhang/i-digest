@@ -1,6 +1,7 @@
 import streamlit as st
 import numpy as np
 import matplotlib.pyplot as plt
+from clipdigest.load_video import download
 from clipdigest.audio2text import a2t
 from clipdigest.get_compound import chem
 import langchain
@@ -12,14 +13,21 @@ langchain.llm_cache = InMemoryCache()
 def main():
     # Set the page title
     st.title('Clip Digest')
+    st.image("img/logo.png", use_column_width=True)
 
     # Add a text input widget
+    video_link = st.text_input('Video link', '')
     audio_path = st.text_input('Path to audio', '')
 
     # Add a button widget
     if st.button('Go'):
-        # Convert the user input to a float
-        video_text = a2t(audio_path)
+        # Get the input arguments
+        if video_link is not None:
+            download(video_link)
+            audio_path = "data/audio.mp4"
+        video_text, summary, question = a2t(audio_path)
+        st.text(f"Summary: \n {summary}")
+        st.text(f"Questions: \n {question}")
         chem(video_text)
 
 

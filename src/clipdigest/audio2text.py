@@ -28,8 +28,7 @@ def a2t(audio_path):
             model="gpt-3.5-turbo",
             messages=messages
         )
-        answer = chat_completion.choices[0].message.content
-        logger.info(f"Summary: {answer}")
+        summary = chat_completion.choices[0].message.content
 
         message = "Come up with questions for '%s'" %result
         messages.append(
@@ -43,9 +42,8 @@ def a2t(audio_path):
             model="gpt-3.5-turbo",
             messages=messages
         )
-        answer = chat_completion.choices[0].message.content
-        logger.info(f"Questions: \n {answer}")
+        question = chat_completion.choices[0].message.content
 
         message = False
 
-    return result
+    return result, summary, question
