@@ -4,6 +4,7 @@ from loguru import logger
 def download(link):
     try:
         yt=YouTube(link)
+        logger.debug(f"The Youtube link is: {link}")
     except:
         print('Connection error')
 
