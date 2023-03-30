@@ -30,11 +30,14 @@ def main():
         if video_link != '':
             download(video_link)
             audio_path = "data/audio.mp4"
-        video_text, summary, question, refer = a2t(audio_path)
+        video_text, summary, question, keywords = a2t(audio_path)
+
+        st.markdown(f"Keywords: \n ")
+        st.markdown(keywords)
         st.markdown(f"Summary:")
         st.markdown(summary)
         st.markdown(f"Questions: \n {question}")
-        st.markdown(f"References: \n {refer}")
+        
         df = chem(video_text)
         ay = []
         for i in df['label']:
