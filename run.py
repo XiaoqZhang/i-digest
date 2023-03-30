@@ -43,6 +43,8 @@ def main():
             
             #st.text(df.loc[df['label'] == i]['iupac'].values[0])
             #st.text(df.loc[df['label'] == i]['SMILES'].values[0])
+        if ay:
+            st.markdown('Chemical compounds:')
         string = ', '.join(ay)
         st.markdown(string)
         raw_html = mols2grid.display(df, mapping={"smiles":"SMILES"})._repr_html_()

@@ -11,7 +11,7 @@ def chem(text):
         Output: DataFrame with PubChem data (label, link, SMILES)
     """
     doc = Document(text)
-    chem_names = list(set([cem.text for cem in doc.cems]))
+    chem_names = list(set([str(cem.text).lower() for cem in doc.cems]))
     logger.debug(f"The chemical compounds found: {chem_names}")
 
     cids_list = []
