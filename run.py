@@ -1,13 +1,9 @@
 import streamlit as st
-import numpy as np
-import pandas as pd
-import matplotlib.pyplot as plt
 from clipdigest.load_video import download
 from clipdigest.audio2text import a2t
 from clipdigest.get_compound import chem
 import langchain
 from langchain.cache import InMemoryCache
-from rdkit import RDConfig
 import mols2grid
 import streamlit.components.v1 as components
 langchain.llm_cache = InMemoryCache()
