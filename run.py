@@ -22,8 +22,7 @@ def main():
     # Add a button widget
     if st.button('Go'):
         # Get the input arguments
-        print("The video link is : %s" %video_link)
-        if video_link is True:
+        if video_link != '':
             download(video_link)
             audio_path = "data/audio.mp4"
         video_text, summary, question = a2t(audio_path)
@@ -31,18 +30,6 @@ def main():
         st.text(f"Questions: \n {question}")
         chem(video_text)
 
-
-        # perhaps go via serialized file, 
-        # then the context does not explode 
-    """
-        if "svg" in result:
-            # find the the filepath that ends with .svg
-            match = re.search(r"/\S+\.svg", result)
-            svg_path = match.group()
-            st.image(svg_path, use_column_width=True)
-        else:
-            st.text(result)
-    """
 
 # Run the main function
 if __name__ == '__main__':
