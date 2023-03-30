@@ -36,11 +36,15 @@ def main():
         st.markdown(f"Questions: \n {question}")
         st.markdown(f"References: \n {refer}")
         df = chem(video_text)
+        ay = []
         for i in df['label']:
             url = df.loc[df['label'] == i]['link'].values[0]
-            st.markdown(f"[{i}]({url})",unsafe_allow_html=True)
+            ay.append(f"[{i}]({url})")
+            
             #st.text(df.loc[df['label'] == i]['iupac'].values[0])
             #st.text(df.loc[df['label'] == i]['SMILES'].values[0])
+        string = ', '.join(ay)
+        st.markdown(string)
         raw_html = mols2grid.display(df, mapping={"smiles":"SMILES"})._repr_html_()
         components.html(raw_html, width=900, height=900, scrolling=True)
 
