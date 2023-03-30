@@ -6,7 +6,7 @@ export OPENAI_API_KEY=“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”
 ```
 We suggest to use your own openai api key following [this link](https://elephas.app/blog/how-to-create-openai-api-keys-cl5c4f21d281431po7k8fgyol0).
 
-2. install the packages required: whisper, openai, loguru, pytube, pubchempy, pandas, streamlit in your local python environment
+2. install the packages required: whisper, openai, loguru, pytube, pubchempy, pandas, matplotlib, numpy, streamlit in your local python environment
 
 3. install chemdataextractor by 
 ```
