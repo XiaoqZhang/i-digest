@@ -1,23 +1,26 @@
 How to run this code
 
-1. set the openai key in the terminal
-```
-export OPENAI_API_KEY=“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”
-```
-We suggest to use your own openai api key following [this link](https://elephas.app/blog/how-to-create-openai-api-keys-cl5c4f21d281431po7k8fgyol0).
+1. Configure Python environment, we suggest you use Python3.8
 
-2. install the packages required: whisper, openai, loguru, pytube, pubchempy, pandas, **streamlit** in your local python environment
+2. Install openai and set the openai key in the terminal
+```
+export OPENAI_API_KEY=<your_api_key>
+```
+You can find your openai api key following [this link](https://elephas.app/blog/how-to-create-openai-api-keys-cl5c4f21d281431po7k8fgyol0).
 
-3. install chemdataextractor by 
+3. Install whisper following [this](https://github.com/openai/whisper)
+
+4. Install the packages required: loguru, pytube, pubchempy, pandas, streamlit, langchain in your local python environment
+
+5. Install chemdataextractor by 
 ```
 pip install chemdataextractor
 cde data download
 ```
 
-4. install this repo
+6. Install this repo
 ```
 pip install -e .
 ```
 
-5. run the program by `streamlit run run.py` 
-
+7. Run the program by `streamlit run run.py` 

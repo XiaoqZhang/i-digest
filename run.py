@@ -1,6 +1,4 @@
 import streamlit as st
-import numpy as np
-import matplotlib.pyplot as plt
 from clipdigest.load_video import download
 from clipdigest.audio2text import a2t
 from clipdigest.get_compound import chem
@@ -28,8 +26,8 @@ def main():
         video_text, summary, question = a2t(audio_path)
         st.text(f"Summary: \n {summary}")
         st.text(f"Questions: \n {question}")
-        chem(video_text)
-
+        df_chem = chem(video_text)
+        st.dataframe(df_chem)
 
 # Run the main function
 if __name__ == '__main__':
