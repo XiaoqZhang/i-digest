@@ -5,6 +5,7 @@ import whisper
 from loguru import logger
 
 def a2t(audio_path):
+    logger.debug(f"Audio2texting")
     openai.api_key = os.environ['OPENAI_API_KEY']
 
     model = whisper.load_model('base')
