@@ -1,5 +1,4 @@
 import os
-import time
 import openai
 import whisper
 from loguru import logger
@@ -44,6 +43,19 @@ def a2t(audio_path):
         )
         question = chat_completion.choices[0].message.content
 
+        message="Suggest some scientific articles for '%s'" %result
+        messages.append(
+            {
+                "role": "user",
+                "content": message
+            }
+        ) 
+        chat_completion = openai.ChatCompletion.create(
+            model="gpt-3.5-turbo",
+            messages=messages
+        )
+        reference = chat_completion.choices[0].message.content        
+        
         message = False
 
-    return result, summary, question
+    return result, summary, question, reference
