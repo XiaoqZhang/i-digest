@@ -1,4 +1,6 @@
 import streamlit as st
+import numpy as np
+import matplotlib.pyplot as plt
 from clipdigest.load_video import download
 from clipdigest.audio2text import a2t
 from clipdigest.get_compound import chem
@@ -24,10 +26,16 @@ def main():
             download(video_link)
             audio_path = "data/audio.mp4"
         video_text, summary, question = a2t(audio_path)
-        st.markdown(f"Summary: \n {summary}")
+        st.text(f"Summary: \n {summary}")
         st.text(f"Questions: \n {question}")
-        df_chem = chem(video_text)
-        st.dataframe(df_chem)
+        df = chem(video_text)
+        for i in df['label']:
+            url = df.loc[df['label'] == i]['link'].values[0]
+            st.write([i](url))
+            st.text(df.loc[df['label'] == i]['iupac'].values[0])
+            st.text(df.loc[df['label'] == i]['SMILES'].values[0])
+
+
 
 # Run the main function
 if __name__ == '__main__':
