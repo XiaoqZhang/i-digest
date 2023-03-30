@@ -25,9 +25,10 @@ def main():
         if video_link != '':
             download(video_link)
             audio_path = "data/audio.mp4"
-        video_text, summary, question = a2t(audio_path)
-        st.text(f"Summary: \n {summary}")
-        st.text(f"Questions: \n {question}")
+        video_text, summary, question, refer = a2t(audio_path)
+        st.markdown(f"Summary: \n {summary}")
+        st.markdown(f"Questions: \n {question}")
+        st.markdown(f"References: \n {refer}")
         df = chem(video_text)
         for i in df['label']:
             url = df.loc[df['label'] == i]['link'].values[0]
