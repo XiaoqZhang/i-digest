@@ -26,7 +26,7 @@ def main():
             download(video_link)
             audio_path = "data/audio.mp4"
         video_text, summary, question = a2t(audio_path)
-        st.text(f"Summary: \n {summary}")
+        st.markdown(f"Summary: \n {summary}")
         st.text(f"Questions: \n {question}")
         chem(video_text)
 
