@@ -21,7 +21,7 @@ def chem(text):
             pcp_compounds = get_compounds(name, 'name')
             for compound in pcp_compounds:
                 cid = compound.cid
-                if cid not in cids_list:
+                if cid not in cids_list: # avoid duplicates
                     cids_list.append(cid)
                     c = pcp.Compound.from_cid(cid)
                     iupac = c.iupac_name
