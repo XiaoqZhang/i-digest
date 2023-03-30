@@ -22,7 +22,8 @@ def main():
     # Add a button widget
     if st.button('Go'):
         # Get the input arguments
-        if video_link is not None:
+        print("The video link is : %s" %video_link)
+        if video_link is True:
             download(video_link)
             audio_path = "data/audio.mp4"
         video_text, summary, question = a2t(audio_path)
