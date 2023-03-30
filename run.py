@@ -17,8 +17,8 @@ langchain.llm_cache = InMemoryCache()
 # Define the main Streamlit app
 def main():
     # Set the page title
-    st.title('Clip Digest')
-    st.image("img/logo.png", use_column_width=True)
+    st.title('ClipDigest')
+    st.image("img/logo.png", width=400, use_column_width=False)
 
     # Add a text input widget
     video_link = st.text_input('Video link', '')
