@@ -43,7 +43,7 @@ def a2t(audio_path):
         )
         question = chat_completion.choices[0].message.content
 
-        message="Suggest some scientific articles for '%s'" %result
+        message="Suggest 3 keywords for '%s'" %result
         messages.append(
             {
                 "role": "user",
