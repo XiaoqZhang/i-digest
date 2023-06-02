@@ -183,4 +183,3 @@ dependencies:
     - widgetsnbextension==3.6.4
     - yarl==1.9.2
     - zipp==3.15.0
-prefix: /Users/sauradeepmajumdar/miniconda3/envs/idigest
