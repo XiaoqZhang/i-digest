@@ -1,17 +1,22 @@
-How to run this code
+# Information-Digestor
 
-1. Configure Python environment, we suggest you use Python3.8
+An educational tool that provides a digital tutor based on course material such as lecture recordings
 
-2. Install openai and set the openai key in the terminal
+# How to run this code
+
+1. Download and install idigest
+
+```
+git clone https://github.com/XiaoqZhang/i-digest
+pip install -e .
+```
+
+2. Set the openai key in the terminal
 ```
 export OPENAI_API_KEY=<your_api_key>
 ```
-You can find your openai api key following [this link](https://elephas.app/blog/how-to-create-openai-api-keys-cl5c4f21d281431po7k8fgyol0).
+You can find your openai API key following [this link](https://beta.openai.com/account/api-keys).
 
-3. Install the required packages as given in the environment_idigest.yml file
+3. Run the program by `streamlit run run.py` 
 
-4. Install this repo
-```
-pip install -e .
-```
-5. Run the program by `streamlit run run.py` 
+4. We have provided several audios in the `data` folder for you to test. 

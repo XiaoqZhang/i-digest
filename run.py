@@ -1,14 +1,12 @@
 import streamlit as st
-from clipdigest.load_video import download
-from clipdigest.audio2text import a2t
-from clipdigest.get_compound import chem
+from idigest.load_video import download
+from idigest.audio2text import a2t
+from idigest.get_compound import chem
 import langchain
 from langchain.cache import InMemoryCache
 import mols2grid
 import streamlit.components.v1 as components
 langchain.llm_cache = InMemoryCache()
-
-
 
 # Define the main Streamlit app
 def main():
@@ -40,8 +38,6 @@ def main():
             url = df.loc[df['label'] == i]['link'].values[0]
             ay.append(f"[{i}]({url})")
             
-            #st.text(df.loc[df['label'] == i]['iupac'].values[0])
-            #st.text(df.loc[df['label'] == i]['SMILES'].values[0])
         if ay:
             st.markdown('Chemical compounds:')
         string = ', '.join(ay)
